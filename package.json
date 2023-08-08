@@ -10,7 +10,11 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@prettier/plugin-pug": "^3.0.0",
     "@types/node": "^18.17.3",
-    "nuxt": "^3.6.5"
+    "nuxt": "^3.6.5",
+    "prettier": "^3.0.1",
+    "pug": "^3.0.2",
+    "sass": "^1.64.2"
   }
 }
