@@ -1,10 +1,10 @@
 <template lang="pug">
 div
-  Problem(v-if="problemVisibility" :problem="showingproblem.problem" @answer="answerFunc && answerFunc($event)")
+  Problem(v-if="problemVisibility" :problem="showingProblem.problem" @answer="answerFunc && answerFunc($event)")
   ProblemResult(v-if="problemResultVisibility"
-  :problem="showingproblem.problem"
+  :problem="showingProblem.problem"
   :userAnswer="userAnswer"
-  :correctAnswer="showingproblem.answer"
+  :correctAnswer="showingProblem.answer"
   @next="nextFunc && nextFunc()")
   Result(v-if="resultVisibility" :result="result" @next="nextFunc && nextFunc()")
 </template>
@@ -27,7 +27,7 @@ let result = ref<{
 
 const userAnswer = ref(false);
 
-const showingproblem = ref<{ problem: string; answer: boolean }>({
+const showingProblem = ref<{ problem: string; answer: boolean }>({
   problem: "",
   answer: false,
 });
@@ -41,10 +41,11 @@ const data = rows.map((row) => row.split(","));
     for (var i = 0; i < 5; i++) {
       // 問題の生成
       const problem = data[Math.floor(Math.random() * data.length)];
-      showingproblem.value = {
+      showingProblem.value = {
         problem: problem[0],
-        answer: problem[1] === "〇" || problem[1] === "○",
+        answer: problem[1] === "○",
       };
+      console.log(toRaw(problem), problem[1] === "○")
       problemVisibility.value = true;
       await new Promise<void>((resolve) => {
         answerFunc = (answer: boolean) => {
@@ -61,9 +62,9 @@ const data = rows.map((row) => row.split(","));
       })
       problemResultVisibility.value = false;
       problems.push({
-        problem: showingproblem.value.problem,
+        problem: showingProblem.value.problem,
         userAnswer: userAnswer.value,
-        correctAnswer: showingproblem.value.answer
+        correctAnswer: showingProblem.value.answer
       })
     }
 
