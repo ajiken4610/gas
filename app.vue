@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import dataCSV0 from "~/assets/hoan.csv?raw";
-import dataCSV1 from "~/assets/data.csv?raw";
+import dataCSV1 from "~/assets/horei.csv?raw";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -39,7 +39,7 @@ const analytics = getAnalytics(app);
 const selectedProblems = ref("保安")
 const problemCSVs: { [key: string]: string } = {
   "保安": dataCSV0,
-  "問題セットB": dataCSV1
+  "法令": dataCSV1
 }
 
 const data = ref("")
