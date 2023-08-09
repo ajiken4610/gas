@@ -45,7 +45,7 @@ const data = rows.map((row) => row.split(","));
         problem: problem[0],
         answer: problem[1] === "○",
       };
-      console.log(toRaw(problem), problem[1] === "○")
+      // console.log(toRaw(problem), problem[1] === "○")
       problemVisibility.value = true;
       await new Promise<void>((resolve) => {
         answerFunc = (answer: boolean) => {
