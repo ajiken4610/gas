@@ -1,5 +1,6 @@
 <template lang="pug">
-.container.my-4 
+.container.my-4
+  Title ごまの問題集
   .text-center
     .btn-group
       button.btn(v-for="(_csv,key) of problemCSVs"
